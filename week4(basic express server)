@@ -16,8 +16,8 @@ app.get('/about', (req, res) => {
 // GET users (dummy data)
 app.get('/users', (req, res) => {
   const users = [
-    { id: 1, name: 'Alice' },
-    { id: 2, name: 'Bob' }
+    { id: 1, name: 'Devesh' },
+    { id: 2, name: 'Jangid' }
   ];
   res.json(users);
 });
