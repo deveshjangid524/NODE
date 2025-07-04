@@ -2,17 +2,22 @@ import React from 'react'
 import Footer from '../components/shared/Footer'
 import Greetings from '../components/home/Greetings'
 import MiniCard from '../components/home/MiniCard'
+import {BsCashCoin} from 'react-icons/bs';
+import {GrInProgress} from 'react-icons/gr';
+import RecentOrders from '../components/home/RecentOrders';
 const Home = () => {
   return (
     <div>
-      <section className='bg-[#1f1f1f] h-[calc(100vh-5rem)] flex gap-3'>
+      <section className='bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden flex gap-3'>
         {/*left div */}
-        <div className='flex-[3] bg-[#1a1a]'>
+        <div className='flex-[3] '>
             <Greetings/>
             <div className='flex items-center w-full gap-3 px-8 mt-8'>
               <MiniCard title="Total Earnings" icon = {<BsCashCoin/>} number = {512} footerNum = {1.6}/>
               <MiniCard title = "In Progress" icon = {<GrInProgress/>} number = {16} footerNum = {3.6}/>
             </div>
+
+        <RecentOrders/>
         </div>
   
         {/* right div */}
