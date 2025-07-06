@@ -8,14 +8,17 @@ import {BiSolidDish} from 'react-icons/bi';
 import {useNavigate, useLocation} from 'react-router-dom';
 import { useState } from 'react';
 import Modal from './Modal';
-
-
+import { useDispatch } from 'react-redux';
+import { setCustomer } from '../../redux/slices/customerSlice';
 
 const Footer = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const location = useLocation();
   const [isModalOpen,setIsModalOpen] = useState(false);
   const [guestCount,setGuestCount] = useState(0);
+  const [name,setName]=useState("");
+  const [phone,setPhone]=useState("");
   const increament = () => {
   if(guestCount === 6) return;
   setGuestCount((prev)=>prev+1);
@@ -33,6 +36,11 @@ const decreament = () => {
   }
 
   const isActive = (path) => location.pathname === path;
+
+  const handleCreateOrder=() => {
+    dispatch(setCustomer({name,phone,guests:guestCount}));
+    navigate('/tables');
+  }
   return (
     <div className='fixed bottom-0 lef-0 right-0 bg-[#262626] p-2 h-16 w-full flex justify-around'>
       <button onClick={()=> navigate('/')} className={`cursor-pointer hover:bg-[#3a3a3a] flex items-center justify-center font-bold ${isActive('/') ? 'text-[#f5f5f5] bg-[#343434]':'text-[#ababab]'}  w-[200px] rounded-[20px]
@@ -51,7 +59,7 @@ const decreament = () => {
           <div>
             <label className='block text-[#ababab] mb-2 text-sm font-medium'>Customer Name</label>
             <div className='flex items-center rounded-lg p-3 px-4 bg-[#1f1f1f]'>
-              <input type="text" name='' placeholder='Enter Customer Name' id='' className='bg-transparent flex-1 text-white focus:outline-none'/>
+              <input value={name} onChange={(e)=>setName(e.target.value)} type="text" name='' placeholder='Enter Customer Name' id='' className='bg-transparent flex-1 text-white focus:outline-none'/>
             </div>
           </div>
 
@@ -59,7 +67,7 @@ const decreament = () => {
           <div>
             <label className='block text-[#ababab] mb-2 mt-3 text-sm font-medium'>Customer Phone</label>
             <div className='flex items-center rounded-lg p-3 px-4 bg-[#1f1f1f]'>
-              <input type="number" name='' placeholder='+91-99999999' id='' className='bg-transparent flex-1 text-white focus:outline-none'/>
+              <input value={phone} onChange={(e) => setPhone(e.target.value)} type="number" name='' placeholder='+91-99999999' id='' className='bg-transparent flex-1 text-white focus:outline-none'/>
             </div>
           </div>
 
@@ -73,7 +81,7 @@ const decreament = () => {
             </div>
           </div>
 
-          <button  onClick={()=>navigate('/tables')} className='w-full bg-[#F6B100] text-[#f5f5f5] rounded-lg py-3 mt-8 hover:bg-amber-500'>Create Order</button>
+          <button  onClick={handleCreateOrder} className='w-full bg-[#F6B100] text-[#f5f5f5] rounded-lg py-3 mt-8 hover:bg-amber-500'>Create Order</button>
         </Modal>
     </div>
   )

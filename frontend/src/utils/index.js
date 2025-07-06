@@ -22,3 +22,16 @@ export const getRandomBG = () => {
     const color = colors[Math.floor(Math.random() * colors.length)];
     return color;
 }
+
+
+export const getAvatar = (name) => {
+    if(!name) return "";
+    return name.split(" ").map(word=> word[0]).join("").toUpperCase();
+}
+
+export const formatDate = (date) => {
+        const months = [
+            'January','February','March','April','May', 'June','July', 'August', 'September', 'October', 'November', 'December'
+        ];
+        return `${months[date.getMonth()]} ${String(date.getDate()).padStart(2,'0')}, ${date.getFullYear()}`;
+    }
