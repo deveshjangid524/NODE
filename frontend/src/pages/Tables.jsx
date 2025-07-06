@@ -26,7 +26,7 @@ const Tables = () => {
             <div className='pl-32 flex flex-wrap gap-6 overflow-y-scroll h-[calc(100vh-5rem-5rem)] scrollbar-hide'>
                 {
                     tables.map((table)=>{
-                       return <TableCard key={table.id} name ={table.name} status={table.status} initials={table.initial}/>
+                       return <TableCard key={table.id} id={table.id} name ={table.name} status={table.status} initials={table.initial}/>
                     })
                 }
                    

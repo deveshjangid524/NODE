@@ -8,7 +8,7 @@ import RecentOrders from '../components/home/RecentOrders';
 import PopularDishes from '../components/home/PopularDishes';
 const Home = () => {
   return (
-    <div>
+    
       <section className='bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden flex gap-3'>
         {/*left div */}
         <div className='flex-[3] '>
@@ -29,7 +29,7 @@ const Home = () => {
         </div>
         <Footer />
       </section>
-    </div>
+    
   )
 }
 
