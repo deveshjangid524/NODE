@@ -30,8 +30,19 @@ const Menu = () => {
 
             {/* right div */}
 
-            <div className='flex-[1] bg-blue-300'>
-
+            <div className='flex-[1] bg-[#1a1a1a] mt-4 mr-3 h-[780px rounded-lg pt-2'>
+            {/* customer info */}
+                <div className='flex items-center justify-between px-4 py-3'>
+                    <div className='flex flex-col items-start'>
+                        <h1 className='text-md text-[#f5f5f5] font-semibold tracking-wide'>Customer Name</h1>
+                        <p className='text-xs text-[#ababab] font-medium mt-1'>Dine In</p>
+                        <p className='text-xs text-[#ababab] font-medium mt-1'>July 6 , time ,d ate</p>
+                    </div>
+                    <button className='bg-[#f6b100] p-3 text-xl font-bold rounded-lg'>CN</button>
+                </div>
+                <hr className='border-[#2a2a2a] border-t-2'/>
+            {/* cart items */}
+            {/* bills */}
             </div>
             <Footer />
         </section>
