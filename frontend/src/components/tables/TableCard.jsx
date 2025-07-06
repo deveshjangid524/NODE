@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 const TableCard = ({name,status,initials,seats}) => {
   const navigate=useNavigate();
   const handleClick=()=>{
-    if(status==='booked') return;
+    if(status==='Booked') return;
     navigate('/menu');
   }
   return (

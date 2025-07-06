@@ -3,6 +3,9 @@ import Footer from '../components/shared/Footer'
 import BackButton from '../components/shared/BackButton'
 import { MdRestaurantMenu } from 'react-icons/md'
 import MenuContainer from '../components/menu/MenuContainer'
+import CustomerInfo from '../components/menu/CustomerInfo'
+import CartInfo from '../components/menu/CartInfo'
+import BillInfo from '../components/menu/BillInfo'
 const Menu = () => {
     return (
         <section className='bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden flex gap-3'>
@@ -32,17 +35,14 @@ const Menu = () => {
 
             <div className='flex-[1] bg-[#1a1a1a] mt-4 mr-3 h-[780px rounded-lg pt-2'>
             {/* customer info */}
-                <div className='flex items-center justify-between px-4 py-3'>
-                    <div className='flex flex-col items-start'>
-                        <h1 className='text-md text-[#f5f5f5] font-semibold tracking-wide'>Customer Name</h1>
-                        <p className='text-xs text-[#ababab] font-medium mt-1'>Dine In</p>
-                        <p className='text-xs text-[#ababab] font-medium mt-1'>July 6 , time ,d ate</p>
-                    </div>
-                    <button className='bg-[#f6b100] p-3 text-xl font-bold rounded-lg'>CN</button>
-                </div>
-                <hr className='border-[#2a2a2a] border-t-2'/>
+            <CustomerInfo/>
+            <hr className='border-[#2a2a2a] border-t-2'/>
             {/* cart items */}
+            <CartInfo/>
+            <hr className='border-[#2a2a2a] border-t-2'/>
+
             {/* bills */}
+            <BillInfo/>
             </div>
             <Footer />
         </section>
