@@ -7,6 +7,7 @@ const Orders = () => {
   const [status, setStatus] = useState('all');
   return (
     <section className='bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden '>
+
       <div className='flex items-center justify-between px-10 py-4'>
         <div className='flex  items-center gap-4 ml-8 '>
           <BackButton />
@@ -22,8 +23,8 @@ const Orders = () => {
           <button onClick={() => setStatus('completed')} className={`text-[#ababab] text-lg ${status === 'completed' && 'bg-[#383838]'} rounded-lg px-5 py-2 font-semibold`}>Completed</button>
 
         </div>
-
       </div>
+
 
       <div className='pl-32 flex flex-wrap gap-6 overflow-y-scroll h-[calc(100vh-5rem-5rem)] scrollbar-hide'>
         <OrderCard />
