@@ -6,11 +6,14 @@ const app = express();
 const createHttpError = require('http-errors')
 const globalErrorHandler = require('./middleware/globalErrorHandler');
 const PORT = config.port;
-
+const cookieParser = require('cookie-parser');
 connectDB();
 
 //middlewares
+
 app.use(express.json());
+
+app.use(cookieParser());
 app.get('/',(req,res) => {
     const error = createHttpError(404,"something went wrng");
     throw error;
