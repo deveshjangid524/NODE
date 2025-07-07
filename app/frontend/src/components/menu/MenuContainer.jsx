@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { menus } from '../../constants'
 import { GrRadialSelected } from 'react-icons/gr'
 import { FaShoppingCart } from 'react-icons/fa';
-
+import { useDispatch } from 'react-redux';
+import { addItems } from '../../redux/slices/cartSlice'
 const MenuContainer = () => {
   const [selected, setSelected] = useState(menus[0]);
   const [itemCounts, setItemCounts] = useState({});
-
+  const dispatch = useDispatch();
   const increment = (id) => {
     setItemCounts((prev) => {
       const current = prev[id] || 0;
@@ -23,6 +24,18 @@ const MenuContainer = () => {
     });
   };
 
+  const handleAddToCart = (item) => {
+    if (!itemCounts[item.id] || itemCounts[item.id] === 0) return;
+
+    const { name, price } = item;
+    const newObj = {
+      id: Math.random().toString(36).substr(2, 9)
+
+      , name, pricePerQuantity: price, quantity: itemCounts[item.id], price: price * itemCounts[item.id]
+    };
+    dispatch(addItems(newObj));
+    setItemCounts((prev) => ({ ...prev, [item.id]: 0 }));
+  }
   return (
     <>
       <div className='grid grid-cols-4 gap-4 px-10 py-4 w-[100%]'>
@@ -46,7 +59,7 @@ const MenuContainer = () => {
       </div>
 
       <hr className='border-[#2a2a2a] border-t-2 mt-4' />
-        {/* --------------------------------------------------------------------------------------------------------------------------------------- */}
+      {/* --------------------------------------------------------------------------------------------------------------------------------------- */}
 
       <div className='grid grid-cols-4 gap-4 px-10 py-4 w-[100%]'>
         {selected?.items?.map((item) => (
@@ -56,7 +69,7 @@ const MenuContainer = () => {
           >
             <div className='flex items-start justify-between w-full'>
               <h1 className='text-[#f5f5f5] text-lg font-semibold'>{item.name}</h1>
-              <button className='bg-[#2e4a40] text-[#02ca3a] p-2 rounded-lg cursor-pointer'><FaShoppingCart/></button>
+              <button onClick={() => handleAddToCart(item)} className='bg-[#2e4a40] text-[#02ca3a] p-2 rounded-lg cursor-pointer'><FaShoppingCart /></button>
             </div>
             <div className='flex items-center justify-between w-full'>
               <p className='text-white text-xl font-bold'>${item.price}</p>
