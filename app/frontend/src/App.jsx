@@ -1,12 +1,16 @@
 import React from 'react'
-import {BrowserRouter as Router, Routes, Route}from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route, useLocation}from 'react-router-dom'
 import {Home, Auth, Orders,Tables, Menu} from './pages'
 import Header from './components/shared/Header'
-const App = () => {
+
+function Layout() {
+   const location = useLocation();
+  const hideHeaderRoutes = ["/auth"];
   return (
     <div>
-      <Router>
-        <Header/>
+      
+        {!hideHeaderRoutes.includes(location.pathname) && <Header/>}
+        
         <Routes>
           <Route path='/'element={<Home/>}/>
           <Route path='/auth' element= {<Auth/>}/>
@@ -15,9 +19,21 @@ const App = () => {
           <Route path='/menu' element={<Menu/>}/>  
           <Route path='*' element={<div>Not found</div>}/>
         </Routes>
-      </Router>
+      
     </div>
   )
+
+}
+const App = () => {
+
+  return (
+
+  <Router>
+    <Layout/>
+  </Router>
+
+  )
+
 }
 
 export default App
