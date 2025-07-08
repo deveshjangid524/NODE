@@ -23,6 +23,7 @@ app.get('/',(req,res) => {
 //other Endpoinnts
 app.use('/api/user',require('./routes/userRoutes'));
 app.use('/api/order',require('./routes/orderRoutes'));
+app.use('/api/table',require('./routes/tableRoutes'));
 //gloabl error handler
 
 app.use(globalErrorHandler);
