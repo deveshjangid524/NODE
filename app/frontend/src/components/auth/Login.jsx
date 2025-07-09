@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {useMutation} from '@tanstack/react-query'
 import {login} from '../../https/index'
+import { enqueueSnackbar } from 'notistack'
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -23,7 +24,8 @@ const Login = () => {
         console.log(data);
     },
     onError: (error) => {
-        console.log(error);
+        const {response} = error;
+        enqueueSnackbar(response.data.message , {variant:"error"});
     }
   })
   return (

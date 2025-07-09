@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const config = require('./config/config');
 const connectDB = require('./config/database');
+const cors = require('cors');
 const app = express();
 const createHttpError = require('http-errors')
 const globalErrorHandler = require('./middleware/globalErrorHandler');
@@ -12,8 +13,15 @@ connectDB();
 //middlewares
 
 app.use(express.json());
+app.use(cors({
 
+
+    credentials:true,
+    origin:['http://localhost:5173']
+}
+));
 app.use(cookieParser());
+
 app.get('/',(req,res) => {
     const error = createHttpError(404,"something went wrng");
     throw error;
