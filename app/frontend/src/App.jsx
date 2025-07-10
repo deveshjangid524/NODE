@@ -4,10 +4,16 @@ import { Home, Auth, Orders, Tables, Menu } from './pages'
 import Header from './components/shared/Header'
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import useLoadData from './hooks/useLoadData';
+import Loader from './components/shared/Loader';
 function Layout() {
   const location = useLocation();
   const hideHeaderRoutes = ["/auth"];
   const {isAuth } = useSelector(state => state.user);
+
+  const isLoading = useLoadData();
+
+  if(isLoading) return <Loader/>
   return (
     <div>
 
