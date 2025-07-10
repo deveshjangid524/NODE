@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import useLoadData from './hooks/useLoadData';
 import Loader from './components/shared/Loader';
+import Dashboard from './pages/Dashboard'
 function Layout() {
   const location = useLocation();
   const hideHeaderRoutes = ["/auth"];
@@ -50,6 +51,14 @@ function Layout() {
           element={
             <ProtectedRoutes>
               <Menu />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoutes>
+              <Dashboard />
             </ProtectedRoutes>
           }
         />
