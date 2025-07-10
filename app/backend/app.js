@@ -32,6 +32,7 @@ app.get('/',(req,res) => {
 app.use('/api/user',require('./routes/userRoutes'));
 app.use('/api/order',require('./routes/orderRoutes'));
 app.use('/api/table',require('./routes/tableRoutes'));
+app.use('/api/payment/',require('./routes/paymentRoute'))
 //gloabl error handler
 
 app.use(globalErrorHandler);

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getUserData } from "../https";
 import { useDispatch } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import { jsx } from "react/jsx-runtime";
 import { removeUser, setUser } from "../redux/slices/userSlice";
 
 
