@@ -3,15 +3,16 @@ import { getAvatar, getRandomBG } from '../../utils'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { updateTable } from '../../redux/slices/customerSlice';
-const TableCard = ({ name, status, initials, seats }) => {
+const TableCard = ({ id,name, status, initials, seats }) => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const bgColor = useMemo(() => getRandomBG(), []);
-
-  const handleClick = (name) => {
+  
+  const handleClick = () => {
     if (status === 'Booked') return;
-    dispatch(updateTable({tableNo:name}))
+    const table = {  tableId : id , tableNo: name } 
+    dispatch(updateTable({table}))
     navigate('/menu');
   }
 

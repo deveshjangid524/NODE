@@ -20,3 +20,7 @@ export const getUserData = () => api.get("/api/user");
 export const addTable = (data) => api.post('/api/table',data);
 
 export const getTables = () => api.get('/api/table')
+
+export const addOrder = (data) => api.post('/api/order/',data);
+
+export const updateTable = ({tableId,...tableData}) => api.put(`/api/table/${tableId}`,tableData);
