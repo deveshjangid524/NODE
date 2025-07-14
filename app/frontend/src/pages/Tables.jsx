@@ -3,7 +3,6 @@ import Footer from '../components/shared/Footer'
 import BackButton from '../components/shared/BackButton'
 import TableCard from '../components/tables/TableCard'
 import { useState } from 'react'
-import { tables } from '../constants'
 import {keepPreviousData, useQuery} from '@tanstack/react-query'
 import {getTables} from "../https";
 import { enqueueSnackbar } from "notistack"
