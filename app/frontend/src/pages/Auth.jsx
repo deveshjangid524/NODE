@@ -23,7 +23,7 @@ const Auth = () => {
 
         {/* Quote */}
         <blockquote className='absolute bottom-10 px-8 mb-10 text-2xl italic text-white'>
-          "Messi is better than Ronaldo"
+          "Customer Satisfaction is our Satisfaction"
           <br />
           <span className='block mt-4 text-yellow-400'>-Founder of Restro</span>
         </blockquote>

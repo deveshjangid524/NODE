@@ -26,7 +26,6 @@ const Login = () => {
     mutationFn: (reqData) => login(reqData),
     onSuccess: (res) => {
         const {data} = res;
-        console.log(data);
         const { _id , name,email,phone,role} = data.data;
         dispatch(setUser({_id , name,email,phone,role}))
         navigate('/');
@@ -80,7 +79,7 @@ const Login = () => {
           type="submit"
           className='w-full mt-6 py-3 text-lg bg-yellow-400 text-gray-900 font-bold rounded-lg'
         >
-          Sign Up
+          Log in 
         </button>
       </form>
     </div>

@@ -16,8 +16,7 @@ const Header = () => {
     const dispatch = useDispatch();
     const logOutMutation = useMutation({
         mutationFn: () => logout(),
-        onSuccess: (data) => {
-            console.log(data);
+        onSuccess: () => {
             dispatch(removeUser());
             navigate('/auth');
         },
