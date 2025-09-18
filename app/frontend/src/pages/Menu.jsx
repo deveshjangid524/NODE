@@ -25,27 +25,27 @@ const Menu = () => {
                         <MdRestaurantMenu className='text-[#f5f5f5] text-4xl' />
                         <div className='flex flex-col items-start'>
                             <h1 className='text-md text-[#f5f5f5] font-semibold'>{customerData.customerName}</h1>
-                            <p className='text-xs text-[#ababab] font-medium'>Table : {customerData.table.tableNo}</p>
+                            <p className='text-xs text-[#ababab] font-medium'>Table : {customerData.table?.tableNo || 'N/A'}</p>
                         </div>
                     </div>
 
                 </div>
 
-                <MenuContainer/>
+                <MenuContainer />
             </div>
 
             {/* right div */}
 
             <div className='flex-[1] bg-[#1a1a1a] mt-4 mr-3 h-[600px] rounded-lg pt-2'>
-            {/* customer info */}
-            <CustomerInfo/>
-            <hr className='border-[#2a2a2a] border-t-2'/>
-            {/* cart items */}
-            <CartInfo/>
-            <hr className='border-[#2a2a2a] border-t-2'/>
+                {/* customer info */}
+                <CustomerInfo />
+                <hr className='border-[#2a2a2a] border-t-2' />
+                {/* cart items */}
+                <CartInfo />
+                <hr className='border-[#2a2a2a] border-t-2' />
 
-            {/* bills */}
-            <BillInfo/>
+                {/* bills */}
+                <BillInfo />
             </div>
             <Footer />
         </section>

@@ -7,12 +7,14 @@ import {keepPreviousData, useQuery} from '@tanstack/react-query'
 import {getTables} from "../https";
 import { enqueueSnackbar } from "notistack"
 const Tables = () => {
-    const [status, setStatus] = useState('all');
+    const [status, setStatus] = useState('all'); //buttons ke liye
     
     const { data: resData ,isError}  = useQuery ({
         queryKey: ["tables"],
         queryFn: async() => {
-            return await getTables();
+            const response = await getTables()
+            console.log("API response" , response.data);
+            return response;
         },
         placeholderData : keepPreviousData
     });
@@ -40,7 +42,7 @@ const Tables = () => {
             <div className='pl-32 flex flex-wrap gap-6 overflow-y-scroll h-[calc(100vh-5rem-5rem)] scrollbar-hide mb-0'>
                 {
                     resData?.data.data.map((table)=>{
-                       return <TableCard  id={table.id} name ={table.tableNo} status={table.status} initials={table?.currentOrder?.customerDetails?.name} seats={table.seats}/>
+                       return <TableCard key={table._id}  id={table._id} name ={table.tableNo} status={table.status} initials={table?.currentOrder?.customerDetails?.name} seats={table.seats}/>
                     })
                 }
                    

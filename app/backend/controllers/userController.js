@@ -35,7 +35,6 @@ const register = async (req, res, next) => {
 const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
-        console.log(req.body);
         if (!email || !password) {
             const error = createHttpError(404, "All fields are required");
             return next(error);
